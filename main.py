@@ -21,8 +21,8 @@ async def on_ready():
     await bot.change_presence(
         status=discord.Status.online,
         activity=discord.Activity(
-            type=discord.ActivityType.watching,
-            name="Hentai"
+            type=discord.ActivityType.playing,
+            name="The coffin of andy and leyley"
         )
     )
 
