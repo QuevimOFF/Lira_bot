@@ -36,10 +36,18 @@ async def carregar_comandos():
             await bot.load_extension(f'Comandos.{nome}')
             print(f'Comando carregado: {nome}')
 
+async def carregar_eventos():
+    for arquivo in os.listdir('./Eventos'):
+        if arquivo.endswith('.py'):
+            nome = arquivo[:-3]
+            await bot.load_extension(f'Eventos.{nome}')
+            print(f'Evento carregado: {nome}')
+
 # Inicializa o bot e carrega os comandos antes de conectar
 async def main():
     async with bot:
         await carregar_comandos()
+        await carregar_eventos()
         await bot.start(os.getenv('DISCORD_TOKEN'))
 
 # Garante que o código só execute quando o arquivo for rodado diretamente
